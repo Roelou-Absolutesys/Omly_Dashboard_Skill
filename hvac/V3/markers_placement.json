@@ -1,0 +1,256 @@
+{
+  "widget": {
+    "type": "latest",
+    "sizeX": 11,
+    "sizeY": 7,
+    "config": {
+      "datasources": [
+        {
+          "type": "entity",
+          "entityAliasId": "03e11320-ea9a-b544-969d-ed7636f77898",
+          "dataKeys": [
+            {
+              "name": "latitude",
+              "type": "timeseries",
+              "label": "latitude",
+              "color": "#2196f3",
+              "settings": {},
+              "_hash": 0.45942799603193674
+            },
+            {
+              "name": "longitude",
+              "type": "timeseries",
+              "label": "longitude",
+              "color": "#4caf50",
+              "settings": {},
+              "_hash": 0.053174291041270694
+            },
+            {
+              "name": "CHW Supply Temp",
+              "type": "timeseries",
+              "label": "CHW Supply Temp",
+              "color": "#f44336",
+              "settings": {},
+              "_hash": 0.3306400265373566
+            }
+          ],
+          "alarmFilterConfig": {
+            "statusList": [
+              "ACTIVE"
+            ]
+          }
+        }
+      ],
+      "timewindow": {
+        "displayValue": "",
+        "selectedTab": 0,
+        "realtime": {
+          "realtimeType": 1,
+          "interval": 1000,
+          "timewindowMs": 60000,
+          "quickInterval": "CURRENT_DAY",
+          "hideInterval": false,
+          "hideLastInterval": false,
+          "hideQuickInterval": false
+        },
+        "history": {
+          "historyType": 0,
+          "interval": 1000,
+          "timewindowMs": 60000,
+          "fixedTimewindow": {
+            "startTimeMs": 1678090071280,
+            "endTimeMs": 1678176471280
+          },
+          "quickInterval": "CURRENT_DAY",
+          "hideInterval": false,
+          "hideLastInterval": false,
+          "hideFixedInterval": false,
+          "hideQuickInterval": false
+        },
+        "aggregation": {
+          "type": "AVG",
+          "limit": 25000
+        }
+      },
+      "showTitle": true,
+      "backgroundColor": "#fff",
+      "color": "rgba(0, 0, 0, 0.87)",
+      "padding": "8px",
+      "settings": {
+        "provider": "openstreet-map",
+        "gmApiKey": "AIzaSyDoEx2kaGz3PxwbI9T7ccTSg5xjdw8Nw8Q",
+        "gmDefaultMapType": "roadmap",
+        "mapProvider": "OpenStreetMap.Mapnik",
+        "useCustomProvider": false,
+        "customProviderTileUrl": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        "mapProviderHere": "HERE.normalDay",
+        "credentials": {
+          "useV3": true,
+          "app_id": "AhM6TzD9ThyK78CT3ptx",
+          "app_code": "p6NPiITB3Vv0GMUFnkLOOg",
+          "apiKey": "kVXykxAfZ6LS4EbCTO02soFVfjA7HoBzNVVH9u7nzoE"
+        },
+        "mapImageUrl": "tb-image;/api/images/system/here_map_system_widget_map_image.svg",
+        "imageEntityAlias": "",
+        "imageUrlAttribute": "",
+        "tmApiKey": "84d6d83e0e51e481e50454ccbe8986b",
+        "tmDefaultMapType": "roadmap",
+        "latKeyName": "latitude",
+        "lngKeyName": "longitude",
+        "xPosKeyName": "xPos",
+        "yPosKeyName": "yPos",
+        "defaultZoomLevel": 3,
+        "defaultCenterPosition": [
+          0,
+          0
+        ],
+        "disableScrollZooming": false,
+        "disableDoubleClickZooming": false,
+        "disableZoomControl": false,
+        "fitMapBounds": true,
+        "useDefaultCenterPosition": false,
+        "mapPageSize": 16384,
+        "markerOffsetX": 0.5,
+        "markerOffsetY": 1,
+        "posFunction": "return {x: origXPos, y: origYPos};",
+        "draggableMarker": true,
+        "showLabel": true,
+        "useLabelFunction": false,
+        "label": "${entityName}",
+        "labelFunction": null,
+        "showTooltip": true,
+        "showTooltipAction": "click",
+        "autocloseTooltip": true,
+        "useTooltipFunction": false,
+        "tooltipPattern": "<b>${entityName}</b><br/><br/><b>Latitude:</b> ${latitude:7}<br/><b>Longitude:</b> ${longitude:7}<br/><br/>",
+        "tooltipFunction": null,
+        "tooltipOffsetX": 0,
+        "tooltipOffsetY": -1,
+        "color": "#fe7569",
+        "useColorFunction": false,
+        "colorFunction": null,
+        "useMarkerImageFunction": true,
+        "markerImage": null,
+        "markerImageSize": 34,
+        "markerImageFunction": "var res = {\n    url: images[0],\n    size: 34\n};\nvar dailyConsumptionThresholdExceeded = (dsData[dsIndex]['dailyConsumptionThresholdExceeded'] && dsData[dsIndex]['dailyConsumptionThresholdExceeded'] === 'true');\nvar weeklyConsumptionThresholdExceeded = (dsData[dsIndex]['weeklyConsumptionThresholdExceeded'] && dsData[dsIndex]['weeklyConsumptionThresholdExceeded'] === 'true');\nvar inactive = (dsData[dsIndex]['deviceInactive'] && dsData[dsIndex]['deviceInactive'] === 'true');\nvar lowBattery = (dsData[dsIndex]['lowBattery'] && dsData[dsIndex]['lowBattery'] === 'true');\nvar lowTemperature = (dsData[dsIndex]['temperatureUnderThreshold'] && dsData[dsIndex]['temperatureUnderThreshold'] === 'true');\n\nif (inactive) {\n    res.url = images[2];\n} else if (dailyConsumptionThresholdExceeded || weeklyConsumptionThresholdExceeded || \n            lowBattery || lowTemperature) {\n    res.url = images[1];\n}\nreturn res;",
+        "markerImages": [
+          "tb-image;/api/images/system/thermostats_dashboard_widget_thermostat_maps_marker_image_1.svg",
+          "tb-image;/api/images/system/thermostats_dashboard_widget_thermostat_maps_marker_image_0.svg"
+        ],
+        "showPolygon": false,
+        "polygonKeyName": "coordinates",
+        "editablePolygon": true,
+        "showPolygonLabel": false,
+        "usePolygonLabelFunction": false,
+        "polygonLabel": "${entityName}",
+        "polygonLabelFunction": null,
+        "showPolygonTooltip": false,
+        "showPolygonTooltipAction": "click",
+        "autoClosePolygonTooltip": true,
+        "usePolygonTooltipFunction": false,
+        "polygonTooltipPattern": "<b>${entityName}</b><br/><br/><b>TimeStamp:</b> ${ts:7}",
+        "polygonTooltipFunction": null,
+        "polygonColor": "#3388ff",
+        "polygonOpacity": 0.5,
+        "usePolygonColorFunction": false,
+        "polygonColorFunction": null,
+        "polygonStrokeColor": "#3388ff",
+        "polygonStrokeOpacity": 1,
+        "polygonStrokeWeight": 1,
+        "usePolygonStrokeColorFunction": false,
+        "polygonStrokeColorFunction": null,
+        "showCircle": false,
+        "circleKeyName": "perimeter",
+        "editableCircle": false,
+        "showCircleLabel": false,
+        "useCircleLabelFunction": false,
+        "circleLabel": "${entityName}",
+        "circleLabelFunction": null,
+        "showCircleTooltip": false,
+        "showCircleTooltipAction": "click",
+        "autoCloseCircleTooltip": true,
+        "useCircleTooltipFunction": false,
+        "circleTooltipPattern": "<b>${entityName}</b><br/><br/><b>TimeStamp:</b> ${ts:7}",
+        "circleTooltipFunction": null,
+        "circleFillColor": "#3388ff",
+        "circleFillColorOpacity": 0.2,
+        "useCircleFillColorFunction": false,
+        "circleFillColorFunction": null,
+        "circleStrokeColor": "#3388ff",
+        "circleStrokeOpacity": 1,
+        "circleStrokeWeight": 3,
+        "useCircleStrokeColorFunction": false,
+        "circleStrokeColorFunction": null,
+        "snappable": false,
+        "initDragMode": false,
+        "hideAllControlButton": false,
+        "hideDrawControlButton": false,
+        "hideEditControlButton": false,
+        "hideRemoveControlButton": false,
+        "useClusterMarkers": false,
+        "zoomOnClick": true,
+        "maxZoom": null,
+        "maxClusterRadius": 80,
+        "animate": true,
+        "spiderfyOnMaxZoom": false,
+        "showCoverageOnHover": true,
+        "chunkedLoading": false,
+        "removeOutsideVisibleBounds": true,
+        "useIconCreateFunction": false,
+        "clusterMarkerFunction": null
+      },
+      "title": "Drag and drop marker to change location",
+      "dropShadow": false,
+      "enableFullscreen": false,
+      "titleStyle": {
+        "fontSize": "16px",
+        "fontWeight": 400
+      },
+      "useDashboardTimewindow": true,
+      "showLegend": false,
+      "widgetStyle": {
+        "border": "1px solid #E0E0E0"
+      },
+      "actions": {
+        "tooltipAction": []
+      },
+      "showTitleIcon": false,
+      "titleIcon": null,
+      "iconColor": "rgba(0, 0, 0, 0.87)",
+      "iconSize": "24px",
+      "titleTooltip": "",
+      "displayTimewindow": true,
+      "enableDataExport": false,
+      "widgetCss": "/* Target the ThingsBoard widget container */\n.tb-widget {\n    width: 100%;\n    height: 100%;\n    background-color: white; /* Card background */\n    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional subtle shadow */\n    position: relative; /* Relative positioning for top border */\n    box-sizing: border-box; /* Include padding/border in width and height */\n}\n\n/* Create the colored top border using a pseudo-element */\n.tb-widget::before {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 5px; /* Thickness of the top border */\n    background-color: #ffc107; /* Aqua color for the top border */\n    border-top-left-radius: 10px; /* Rounded top corners */\n    border-top-right-radius: 10px;\n}\n\n/* Additional padding and alignment for the widget content */\n.tb-widget-content {\n    padding-top: 5px;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    height: 100%;\n}\n\n/* Optional: Customize the chart canvas if needed */\n.tb-widget-content canvas {\n    width: 100%;\n    height: 100%;\n    border-radius: 8px; /* Match the inner chart border to card shape */\n}",
+      "pageSize": 1024,
+      "noDataDisplayMessage": ""
+    },
+    "id": "a5b41d93-2fa9-3499-9f88-2a02d8165ea2",
+    "typeFullFqn": "system.input_widgets.markers_placement_openstreetmap"
+  },
+  "aliasesInfo": {
+    "datasourceAliases": {
+      "0": {
+        "alias": "State",
+        "filter": {
+          "type": "stateEntity",
+          "resolveMultiple": false,
+          "stateEntityParamName": "",
+          "defaultStateEntity": {
+            "entityType": "CURRENT_CUSTOMER",
+            "id": "93d5efe0-8c48-11ef-af7e-6f81b82cbe1c"
+          }
+        }
+      }
+    },
+    "targetDeviceAlias": null
+  },
+  "filtersInfo": {
+    "datasourceFilters": {}
+  },
+  "originalSize": {
+    "sizeX": 6,
+    "sizeY": 5
+  },
+  "originalColumns": 24
+}

@@ -1,0 +1,354 @@
+.dg-card {
+    font-family: Roboto, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+    border: 1px solid #dde6ef;
+    border-radius: 14px;
+    background: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(12, 31, 53, .06)
+}
+
+.dg-head {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e6edf4
+}
+
+.dg-title {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #22384f
+}
+
+.dg-grid {
+    padding: 10px 10px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: minmax(126px, auto);
+    gap: 8px;
+    overflow: auto;
+    align-content: start
+}
+
+.dg-card-item {
+    border: 1px solid #ebf1f7;
+    border-radius: 10px;
+    background: #ffffff;
+    padding: 7px 8px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    position: relative
+}
+
+.dg-card-item.good {
+    box-shadow: inset 0 3px 0 #32a852
+}
+
+.dg-card-item.warn {
+    box-shadow: inset 0 3px 0 #efb125
+}
+
+.dg-card-item.bad {
+    box-shadow: inset 0 3px 0 #e04848
+}
+
+.dg-card-item.value {
+    justify-content: center
+}
+
+.dg-name {
+    font-size: 10px;
+    color: #2b3f53;
+    font-weight: 700;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px
+}
+
+.dg-expand {
+    display: none
+}
+
+.dg-gauge-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    padding: 4px 0
+}
+
+.dg-gauge {
+    width: 100%;
+    max-width: 160px;
+    height: 86px;
+    display: block
+}
+
+.dg-value-main {
+    font-size: 13px;
+    font-weight: 800;
+    color: #22384f;
+    text-align: center;
+    margin-top: -2px
+}
+
+.dg-value-sub {
+    font-size: 9px;
+    color: #7c92a8;
+    text-align: center;
+    margin-top: 2px
+}
+
+.dg-ind-label {
+    font-size: 11px;
+    color: #7c92a8;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase
+}
+
+.dg-ind-value {
+    font-size: 22px;
+    line-height: 1;
+    font-weight: 800;
+    color: #c62828;
+    margin-top: 8px
+}
+
+.dg-ind-value.green {
+    color: #2eaf62
+}
+
+.dg-ind-range {
+    margin-top: 6px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #7c92a8
+}
+
+.dg-ind-bar {
+    height: 6px;
+    border-radius: 999px;
+    background: #dfe7ef;
+    margin-top: 8px;
+    overflow: hidden
+}
+
+.dg-ind-fill {
+    height: 100%;
+    background: #43a047
+}
+
+.dg-empty {
+    padding: 24px;
+    text-align: center;
+    color: #7c92a8;
+    font-size: 13px
+}
+
+.dg-footnote {
+    grid-column: 1/-1;
+    font-size: 11px;
+    color: #7c92a8;
+    padding-top: 2px
+}
+
+@media(max-width:1600px) {
+    .dg-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr))
+    }
+}
+
+@media(max-width:980px) {
+    .dg-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+}
+
+@media(max-width:620px) {
+    .dg-grid {
+        grid-template-columns: 1fr
+    }
+}
+
+.sg-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 16px;
+    gap: 16px;
+    grid-column: 1/-1
+}
+
+.sg-scene {
+    width: 100%;
+    max-width: 380px
+}
+
+.sg-svg {
+    width: 100%;
+    height: auto;
+    display: block
+}
+
+.sg-footer {
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.sg-bar-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.sg-bar-track {
+    flex: 1 1 auto;
+    height: 10px;
+    background: #e6edf4;
+    border-radius: 999px;
+    overflow: hidden
+}
+
+.sg-bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    transition: width .4s ease, background .4s ease
+}
+
+.sg-bar-num {
+    font-size: 13px;
+    font-weight: 800;
+    min-width: 50px;
+    text-align: right
+}
+
+.sg-status {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-align: center;
+    text-transform: uppercase
+}
+
+.sg-device-info {
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px
+}
+
+.sg-device-name {
+    font-size: 13px;
+    font-weight: 800;
+    color: #22384f;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.sg-device-val {
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1;
+    transition: color .4s ease
+}
+
+.lt-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 4px;
+    grid-column: 1/-1;
+    width: 100%
+}
+
+.lt-brt-card {
+    background: #e8f4fd;
+    border: 1px solid #bbdefb;
+    border-radius: 10px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+
+.lt-brt-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #1565c0;
+    text-transform: uppercase;
+    letter-spacing: .08em
+}
+
+.lt-brt-value {
+    font-size: 28px;
+    font-weight: 900;
+    color: #1565c0;
+    line-height: 1
+}
+
+.lt-channels {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px
+}
+
+.lt-ch {
+    border: 1px solid #ebf1f7;
+    border-radius: 10px;
+    background: #f8f9fa;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px
+}
+
+.lt-ch.lt-on {
+    background: #fffde7;
+    border-color: #ffe082;
+    box-shadow: 0 0 10px rgba(255, 214, 0, 0.3), inset 0 3px 0 #ffd600
+}
+
+.lt-ch-name {
+    font-size: 9px;
+    font-weight: 700;
+    color: #7c92a8;
+    text-transform: uppercase;
+    letter-spacing: .06em
+}
+
+.lt-bulb-svg {
+    width: 40px;
+    height: 54px;
+    display: block
+}
+
+.lt-ch-state {
+    font-size: 11px;
+    font-weight: 800;
+    color: #b0bec5
+}
+
+.lt-ch.lt-on .lt-ch-state {
+    color: #f9a825
+}

@@ -1,0 +1,79 @@
+## V1.2 Update
+
+- Added a selectable history range dropdown to HVAC V4 Generator Mains Panel popups with past hour, 6h, 12h, 24h, 3 day, 7 day, and 30 day options.
+- Fixed HVAC V4 Generator Mains Panel history popup loading to request 7-day telemetry from the ThingsBoard telemetry REST endpoint before falling back to loaded widget data.
+- Restyled HVAC V4 Generator Mains Panel history popups as Trend Panel-style line charts with legend, crosshair, and hover tooltip.
+- Added clickable dials and fuel gauge history popups to HVAC V4 Generator Mains Panel, showing a 7-day telemetry graph for the selected item.
+- Updated HVAC v4 Trend Panel x-axis rendering to span the active dashboard time window instead of only the returned telemetry point range.
+- Added filter-button behavior to the HVAC Alarms Counter cards on the Reporting dashboard and wired them to filter the BMS Building Alerts by Asset widget.
+- Changed HVAC V4 Device Priority Table active-device status text from `Running` to `Online`.
+- Updated HVAC V4 Header Navigation so the default dashboard state shows the Reporting button while hiding the other navigation actions.
+- Added an engine on/off indicator beside the HVAC V4 Generator Mains Panel fuel gauge, turning red at 0 RPM and green when RPM is above 0.
+- Changed the HVAC V4 Generator Mains Panel fourth dial from Hz Mains to RPM Engine with 1000-step intervals up to 6000 RPM.
+- Updated the HVAC V4 Generator Mains Panel voltage dials to use and label L1-L2, L2-L3, and L3-L1 line voltage.
+- Fixed HVAC V4 Generator Mains Panel value mapping so live generator telemetry takes priority over zero-valued mains aliases and `engine_rpm` feeds the Engine Speed row.
+- Centered the Alarms table severity badge rendering so Warning/Critical labels sit neatly in the middle of their cells.
+- Updated HVAC V4 Generator Mains Panel telemetry bindings to use the corrected bus, mains, generator, engine, fuel, oil, and power-factor keys.
+- Enabled alarm assignment in the BMS Building Alerts by Asset widget bundle default configuration.
+- Enabled alarm assignment from the Assignee column in the BMS Building Alerts by Asset widget export.
+- Replaced the HVAC V4 Generator Mains Panel Fuel Level text row with a compact fuel gauge beside the Engine telemetry table.
+- Updated HVAC V4 Header Navigation version badge to `V1.2.2`.
+- Updated HVAC V4 Header Navigation version badge to `V1.2.1`.
+- Added temporary HVAC V4 Device Dials support for generator telemetry including coolant temperature, engine battery voltage, engine speed, fuel level, generator frequency, phase currents, and phase-to-neutral voltages.
+- Added HVAC V4 Device Dials support for `device=AHU2` devices with AVG, AVGRMT, CHWLTEMP, COOL, HEAT, RAT, RATSET, SPRINKLER, STATIC, STATICSP, and STATICSPW telemetry.
+- Restored HVAC V4 Device Dials controller from the clean backup export and reapplied only the `Water_Meter` total-consumption card change.
+- Updated HVAC V4 Device Dials `Water_Meter` profile to render cumulative meter readings as total-consumption cards instead of gauges.
+- Hardened HVAC V4 Device Dials rendering so unexpected telemetry rows show a widget error state instead of leaving the panel stuck loading.
+- Restored the HVAC V4 Device Dials shared datasource to its original 240-key set to clear the dashboard-wide loading state.
+- Removed `Roof_Chiller_1`, `Roof_Chiller_2`, `Roof_Chiller_3`, roof riser/header, and `device=AHU2` telemetry bindings from HVAC V4 Device Dials while preserving the controller-side profile code for future isolated binding work.
+- Updated HVAC V4 Building Selector to list buildings with active alarms first while preserving the existing order for the remaining buildings.
+- Fixed HVAC V4 Device Dials so Mall of The South lighting sensors with `device=Sensor`, `type=lighting`, and numeric `value` telemetry render the proximity sensor card instead of generic HVAC temperature dials.
+- Added conditional `P1` and `P2` phase filter buttons to the HVAC V4 Device Priority Table, driven by the device `building` server attribute.
+- Added the 11 Alice Lane Device Dials telemetry profile for `P2 Roof Fans` and bound its missing SPF 7 run-status key.
+- Added the 11 Alice Lane Device Dials telemetry profile for `P1 Roof Fans`.
+- Added 11 Alice Lane Device Dials telemetry profiles for `P1 Basement Fans`, `P2 Lower Level`, `P1 Transformer Room`, `P2 Patch Rooms`, `P2 Server Room`, and `P2 UPS Room`.
+- Added missing 11 Alice Lane Device Dials telemetry for `P1 Sec.CHW.Pumps`, `P2 Lifts`, `P1 Chiller Plant`, `P2 Main Plant`, and `P2 Domestic Water`.
+- Fixed HVAC V4 Device Dials for 11 Alice Lane secondary CHW/HW pump devices so pump control pressure and run-status telemetry render in the existing dial/card style instead of unrelated generic dials.
+- Fixed HVAC V4 Parking Boomgates widget rendering so boomgates and paystations are classified from separate attribute/timeseries values and no longer disappear from the tabbed view.
+- Updated HVAC V4 Device Dials generic status telemetry so binary 0/1 run/status values render as On/Off cards instead of gauges.
+- Updated OnKey Ticket Form with an `Equipment offline` fault type, selected-building site prefill, and requester dropdown metadata fill.
+- Updated HVAC v4 Service Split Overview ticket creation to load the selected asset's `onkey_id` server attribute into the OnKey form.
+- Added mandatory field for the Onkey form
+- Added color differentiation for Onkey ticket priority
+- Created a new dashboard for OnKey ticketing fill-in form
+- Added `OnKey ID` to HVAC v4 Device Editor and the OnKey ticket form payload.
+- Added a `Create Ticket` button to HVAC v4 Service Split Overview that opens `onkey_form` for the selected building asset.
+- Added an OnKey ticket form widget to the `onkey_form` dashboard state.
+- Updated HVAC v4 Device Editor to show `Create Ticket` and navigate to the blank `onkey_form` dashboard state.
+- Reduced the HVAC V4 dashboard import payload below the ThingsBoard 16 MB upload limit by trimming generated data-key metadata.
+- Fixed `Chiller_BlockB`/`Chiller_BlockC` Device Dials detection and bindings for BlockB-style chilled-water temperature telemetry.
+- Updated HVAC V4 Device Dials so `Chiller_BlockB` and `Chiller_BlockC` use the Chiller 1 temperature-only dial layout.
+- Fixed HVAC V4 Device Map marker-save status text to prevent mojibake and header overlap after placing a marker.
+- Updated Remote Connect to read Guacamole `UUID`, `G-Username`, and `G-Password` from the selected building's server attributes instead of widget settings.
+- Removed stale Remote Connect credential fields from the HVAC V4 dashboard widget settings, leaving only the Guacamole base URL.
+- Fixed HVAC V4 Device Dials detection order so `Chiller 1` temperature-only dials render before the generic Chiller Plant summary.
+- Added HVAC V4 Device Dials support for `The Interchange` asset `Chiller 1` with temperature-only dials.
+- Updated HVAC V4 Device Dials pump status rendering for `P2 Sec.HW.Pumps` to show only available pump telemetry alongside the control pressure gauge.
+- Added HVAC V4 Device Dials support for `P2 Sec.CHW.Pumps` pump run-status card alongside the control pressure gauge.
+- Added HVAC V4 Device Dials support for `P1 Sec.HW.Pumps` run-status cards alongside the control pressure gauge.
+- Added HVAC V4 Device Dials support for `P2 Lifts` telemetry with lift alarm status cards.
+- Added HVAC V4 Device Dials support for `P2 Power Level` telemetry with grouped fan status cards and static pressure rows.
+- Added HVAC V4 Device Dials support for `P1 Transformer Room` telemetry with temperature and transformer/fan status cards.
+- Updated HVAC V4 Device Dials leak detection sensors for `P2 Server Room` to render as status leak cards instead of dial gauges.
+- Scoped HVAC V4 Device Dials fan cards for `P1 Basement Fans` to only PEF 1-3 and SPF 2-4 telemetry.
+- Fixed HVAC V4 Device Dials fan cards for `P1 Basement Fans` by adding PEF/SPF telemetry bindings and hiding empty pressure rows.
+- Updated HVAC V4 gauge needles to use a blue teardrop-style pointer.
+- Reverted `P1 Sec.CHW.Pumps` pressure display back to the original gauge card.
+- Added the `V1.1` dashboard version label to the middle of the HVAC V4 Header Navigation bar.
+- Added an empty HVAC V4 `Generator` dashboard state and routed Device Priority Table Details clicks there when the selected device has server attribute `device=Generator`.
+- Added the HVAC V4 Generator Mains Panel widget to the `Generator` dashboard state using the selected generator device datasource.
+- Removed the HVAC V4 Generator Mains Panel blue background artwork and set missing dial telemetry to render at zero.
+- Updated the HVAC V4 Generator Mains Panel layout so Accumulated and Total summary tables sit side by side.
+- Added HVAC V4 Header Navigation to the `Generator` state and updated header navigation behavior for the generator detail state.
+- Removed the explicit Generator header button and routed the Header Navigation Device Details button to `Generator` when the selected device has server attribute `device=Generator`.
+- Added the selected-device alarms table, HVAC V4 Device Map, and HVAC V4 Device Editor to the `Generator` dashboard state.
+- Styled the HVAC V4 Generator Mains Panel with a white card background, light border, rounded corners, and subtle shadow to match the other widgets.
+- Fixed the `Current` HVAC V4 Header Navigation widget border and clipping behavior by constraining the header card within the widget bounds.
+- Added an Engine telemetry table to the HVAC V4 Generator Mains Panel for coolant temperature, fuel level, engine battery voltage, engine speed, oil pressure, and oil temperature.
+- Increased the HVAC V4 Generator Mains Panel table text, row padding, and spacing for the Voltage, Engine, Accumulated, and Total sections.
+- Updated HVAC V4 Building Selector alarm dots to use alarm type/severity attributes when available, with distinct colors for mechanical, electrical, water, fire/lighting, parking, IAQ, and warning alarms.

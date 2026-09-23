@@ -1,0 +1,22 @@
+<div class="tb-guac-widget" id="tbGuacRoot">
+  <div class="tb-toolbar" id="tbGuacToolbar">
+    <button class="tb-icon" id="tbGuacOpenBtn" title="Open">
+      <i class="material-icons">play_arrow</i>
+    </button>
+    <button class="tb-icon" id="tbGuacCloseBtn" title="Close">
+      <i class="material-icons">stop</i>
+    </button>
+    <!--<button class="tb-icon" id="tbGuacFullscreenBtn" title="Fullscreen">
+      <i class="material-icons" id="tbGuacFsIcon">fullscreen</i>
+    </button>-->
+    <span class="tb-status" id="tbGuacStatus">ready</span>
+  </div>
+
+  <!-- The embedded Guacamole client -->
+  <iframe
+    id="tbGuacFrame"
+    style="display:none;"
+    allow="keyboard; clipboard-read; clipboard-write; fullscreen"
+    referrerpolicy="no-referrer"
+  ></iframe>
+</div>

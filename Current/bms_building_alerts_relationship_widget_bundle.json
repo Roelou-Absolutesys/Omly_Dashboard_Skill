@@ -1,0 +1,165 @@
+{
+  "widget": {
+    "typeFullFqn": "tenant.bms_building_alerts_relationship.alerts_by_building",
+    "type": "alarm",
+    "sizeX": 24,
+    "sizeY": 10,
+    "row": 0,
+    "col": 0,
+    "id": "building-alerts-grid",
+    "config": {
+      "timewindow": {
+        "realtime": {
+          "interval": 1000,
+          "timewindowMs": 86400000
+        },
+        "aggregation": {
+          "type": "NONE",
+          "limit": 1000
+        }
+      },
+      "showTitle": false,
+      "backgroundColor": "#ffffff",
+      "color": "rgba(0, 0, 0, 0.87)",
+      "padding": "4px",
+      "settings": {
+        "alarmsTitle": "BUILDING ALERTS",
+        "enableSelection": false,
+        "enableSearch": true,
+        "enableSelectColumnDisplay": true,
+        "enableFilter": true,
+        "enableStickyHeader": true,
+        "enableStickyAction": false,
+        "showCellActionsMenu": true,
+        "reserveSpaceForHiddenAction": "true",
+        "displayDetails": true,
+        "allowAcknowledgment": true,
+        "allowClear": true,
+        "allowAssign": true,
+        "displayActivity": true,
+        "displayPagination": true,
+        "defaultPageSize": 50,
+        "defaultSortOrder": "-createdTime"
+      },
+      "title": "Building Alerts by Asset",
+      "dropShadow": false,
+      "enableFullscreen": true,
+      "useDashboardTimewindow": false,
+      "showLegend": false,
+      "alarmSource": {
+        "type": "entity",
+        "name": "All devices",
+        "entityAliasId": "c6d74b0e-2c55-4dc5-85e5-31f2c2b85f56",
+        "dataKeys": [
+          {
+            "name": "createdTime",
+            "type": "alarm",
+            "label": "Created time",
+            "color": "#2196f3",
+            "settings": {}
+          },
+          {
+            "name": "originator",
+            "type": "alarm",
+            "label": "Name",
+            "color": "#2196f3",
+            "settings": {}
+          },
+          {
+            "name": "type",
+            "type": "alarm",
+            "label": "Alert type",
+            "color": "#f44336",
+            "settings": {}
+          },
+          {
+            "name": "severity",
+            "type": "alarm",
+            "label": "Severity",
+            "color": "#f44336",
+            "settings": {}
+          },
+          {
+            "name": "assignee",
+            "type": "alarm",
+            "label": "Assignee",
+            "color": "#2196f3",
+            "settings": {}
+          },
+          {
+            "name": "status",
+            "type": "alarm",
+            "label": "Status",
+            "color": "#9c27b0",
+            "settings": {}
+          },
+          {
+            "name": "ackTs",
+            "type": "alarm",
+            "label": "Acknowledged time",
+            "color": "#8bc34a",
+            "settings": {}
+          },
+          {
+            "name": "clearTs",
+            "type": "alarm",
+            "label": "Cleared time",
+            "color": "#8bc34a",
+            "settings": {}
+          }
+        ]
+      },
+      "datasources": [],
+      "alarmsPollingInterval": 0,
+      "displayTimewindow": false,
+      "configMode": "advanced",
+      "alarmFilterConfig": {
+        "statusList": [
+          "ACTIVE",
+          "UNACK"
+        ],
+        "severityList": [
+          "CRITICAL",
+          "MAJOR",
+          "MINOR",
+          "WARNING",
+          "INDETERMINATE"
+        ],
+        "typeList": null,
+        "searchPropagatedAlarms": true,
+        "assignedToCurrentUser": false,
+        "assigneeId": null
+      },
+      "widgetStyle": {
+        "padding": "0",
+        "background": "#f7fafc",
+        "borderRadius": "12px",
+        "overflow": "hidden",
+        "border": "1px solid #dde6ef"
+      },
+      "pageSize": 50,
+      "noDataDisplayMessage": "No live alarms found"
+    }
+  },
+  "aliasesInfo": {
+    "datasourceAliases": {
+      "0": {
+        "alias": "All devices",
+        "filter": {
+          "type": "entityType",
+          "resolveMultiple": true,
+          "entityType": "DEVICE"
+        }
+      }
+    },
+    "targetDeviceAlias": null
+  },
+  "filtersInfo": {
+    "datasourceFilters": {}
+  },
+  "originalSize": {
+    "sizeX": 24,
+    "sizeY": 14
+  },
+  "originalColumns": 24
+}

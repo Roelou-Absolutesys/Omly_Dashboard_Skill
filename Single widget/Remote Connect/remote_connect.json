@@ -1,0 +1,25 @@
+{
+  "schema": {
+    "type": "object",
+    "title": "Guacamole settings",
+    "properties": {
+      "guacBase": {
+        "title": "Guacamole Base URL",
+        "type": "string",
+        "default": "",
+        "description": "Example: https://iot.omly.co:4823"
+      },
+      "dataSource": {
+        "title": "Data Source (optional)",
+        "type": "string",
+        "default": "",
+        "description": "Only needed if multiple auth sources. Example: postgresql"
+      }
+    },
+    "required": ["guacBase"]
+  },
+  "form": [
+    { "key": "guacBase", "placeholder": "https://iot.omly.co:4823" },
+    { "key": "dataSource", "placeholder": "(optional)" }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "widget": {
+    "typeFullFqn": "system.alarm_widgets.alarms_table",
+    "type": "alarm",
+    "sizeX": 8,
+    "sizeY": 10,
+    "row": 1,
+    "col": 16,
+    "id": "w-building-active-alarms",
+    "config": {
+      "timewindow": {
+        "realtime": {
+          "interval": 1000,
+          "timewindowMs": 86400000
+        },
+        "aggregation": {
+          "type": "NONE",
+          "limit": 200
+        }
+      },
+      "showTitle": true,
+      "backgroundColor": "rgb(255, 255, 255)",
+      "color": "rgba(0, 0, 0, 0.87)",
+      "padding": "4px",
+      "settings": {
+        "alarmsTitle": "ACTIVE ALARMS",
+        "enableSelection": false,
+        "enableSearch": true,
+        "enableSelectColumnDisplay": true,
+        "enableFilter": true,
+        "enableStickyHeader": true,
+        "enableStickyAction": true,
+        "showCellActionsMenu": true,
+        "reserveSpaceForHiddenAction": "true",
+        "displayDetails": true,
+        "allowAcknowledgment": true,
+        "allowClear": true,
+        "allowAssign": true,
+        "displayActivity": true,
+        "displayPagination": true,
+        "defaultPageSize": 8,
+        "defaultSortOrder": "-createdTime",
+        "useRowStyleFunction": false,
+        "rowStyleFunction": ""
+      },
+      "title": "Selected Building Active Alarms",
+      "dropShadow": false,
+      "enableFullscreen": true,
+      "titleStyle": {
+        "background": "#4c8dc3",
+        "color": "#ffffff",
+        "fontSize": "14px",
+        "fontWeight": "600",
+        "letterSpacing": "0.05em",
+        "padding": "8px 12px"
+      },
+      "useDashboardTimewindow": true,
+      "showLegend": false,
+      "alarmSource": {
+        "type": "entity",
+        "name": "",
+        "entityAliasId": "ca5c41d2-0b2f-d3d6-fd9e-1a445c7e8481",
+        "dataKeys": [
+          {
+            "name": "createdTime",
+            "type": "alarm",
+            "label": "Created time",
+            "color": "#2196f3",
+            "settings": {
+              "useCellContentFunction": true,
+              "cellContentFunction": "if (!value) return ''; var d = new Date(value); if (isNaN(d.getTime())) return ''; function p(n){return n<10?'0'+n:''+n;} return p(d.getDate())+'/'+p(d.getMonth()+1)+'/'+d.getFullYear()+' '+p(d.getHours())+':'+p(d.getMinutes());"
+            },
+            "_hash": 0.6800233374173164
+          },
+          {
+            "name": "originator",
+            "type": "alarm",
+            "label": "Originator",
+            "color": "#2196f3",
+            "settings": {},
+            "_hash": 0.700537927721999
+          },
+          {
+            "name": "type",
+            "type": "alarm",
+            "label": "Type",
+            "color": "#2196f3",
+            "settings": {},
+            "_hash": 0.517579031061302
+          },
+          {
+            "name": "severity",
+            "type": "alarm",
+            "label": "Severity",
+            "color": "#2196f3",
+            "settings": {
+              "useCellStyleFunction": true,
+              "cellStyleFunction": "var style={display:'inline-block','min-width':'52px',padding:'2px 6px','border-radius':'12px',color:'#fff','font-weight':700,'font-size':'10px','text-transform':'uppercase','text-align':'center'}; switch(String(value||'').toUpperCase()){case 'CRITICAL':style['background-color']='#d32f2f';break;case 'MAJOR':style['background-color']='#ef5350';break;case 'MINOR':case 'WARNING':style['background-color']='#fb8c00';break;default:style['background-color']='#43a047';} return style;",
+              "useCellContentFunction": true,
+              "cellContentFunction": "return value ? String(value).toUpperCase() : '';"
+            },
+            "_hash": 0.49374536131012037
+          },
+          {
+            "name": "assignee",
+            "type": "alarm",
+            "label": "Assignee",
+            "color": "#2196f3",
+            "settings": {},
+            "_hash": 0.26553091086634395
+          }
+        ],
+        "alarmFilterConfig": {
+          "statusList": [
+            "ACTIVE",
+            "UNACK"
+          ],
+          "severityList": [],
+          "typeList": null
+        }
+      },
+      "alarmsPollingInterval": 5,
+      "datasources": [],
+      "displayTimewindow": false,
+      "configMode": "advanced",
+      "alarmFilterConfig": {
+        "statusList": [
+          "ACTIVE",
+          "CLEARED",
+          "ACK",
+          "UNACK"
+        ],
+        "severityList": [
+          "CRITICAL",
+          "MAJOR",
+          "MINOR",
+          "WARNING",
+          "INDETERMINATE"
+        ],
+        "typeList": [
+          "Chiller Not Started/Stopped",
+          "Chiller Water Temp High",
+          "Static Pressure Error",
+          "Static Pressure Too Low"
+        ],
+        "searchPropagatedAlarms": true,
+        "assignedToCurrentUser": false,
+        "assigneeId": null
+      },
+      "widgetStyle": {
+        "padding": "0",
+        "background": "#f7fafc",
+        "borderRadius": "12px",
+        "overflow": "hidden",
+        "border": "1px solid #dde6ef"
+      },
+      "pageSize": 1024,
+      "noDataDisplayMessage": "No alarms found"
+    }
+  },
+  "aliasesInfo": {
+    "datasourceAliases": {
+      "0": {
+        "alias": "Selected Building - Devices",
+        "filter": {
+          "type": "relationsQuery",
+          "resolveMultiple": true,
+          "rootStateEntity": true,
+          "stateEntityParamName": "",
+          "defaultStateEntity": null,
+          "rootEntity": null,
+          "direction": "FROM",
+          "maxLevel": 1,
+          "fetchLastLevelOnly": false,
+          "filters": []
+        }
+      }
+    },
+    "targetDeviceAlias": null
+  },
+  "filtersInfo": {
+    "datasourceFilters": {}
+  },
+  "originalSize": {
+    "sizeX": 10,
+    "sizeY": 15
+  },
+  "originalColumns": 24
+}

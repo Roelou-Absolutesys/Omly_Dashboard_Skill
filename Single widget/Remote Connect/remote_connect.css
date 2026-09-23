@@ -1,0 +1,49 @@
+.tb-guac-widget {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #fafafa;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.tb-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  height: 40px;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.tb-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  width: 28px;
+  border: none;
+  border-radius: 6px;
+  background: #f1f1f1;
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+.tb-icon:hover { background: #e7e7e7; }
+.tb-icon:active { background: #dedede; }
+.tb-icon i.material-icons { font-size: 18px; line-height: 18px; }
+
+.tb-status {
+  margin-left: 6px;
+  font-size: 12px;
+  color: #666;
+}
+
+#tbGuacFrame {
+  width: 100%;
+  border: none;
+  flex: 1 1 auto;          /* fill remaining height */
+  background: #000;
+}

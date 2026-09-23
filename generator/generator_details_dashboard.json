@@ -1,0 +1,295 @@
+{
+  "title": "Generator Device Details",
+  "image": null,
+  "mobileHide": false,
+  "mobileOrder": null,
+  "configuration": {
+    "description": "Generator device monitoring dashboard. Navigated to when a device has server attribute key='device', value='generator'. Shows mains power panel, device info, and engine gauges.",
+    "settings": {
+      "stateControllerId": "entity"
+    },
+    "timewindow": {
+      "displayValue": "Realtime — last 5 minutes",
+      "selectedTab": 0,
+      "realtime": {
+        "realtimeType": 0,
+        "interval": 5000,
+        "timewindowMs": 300000,
+        "quickInterval": "CURRENT_DAY",
+        "hideInterval": false,
+        "hideLastInterval": false,
+        "hideQuickInterval": false
+      },
+      "history": {
+        "historyType": 0,
+        "interval": 5000,
+        "timewindowMs": 300000,
+        "fixedTimewindow": {
+          "startTimeMs": 1749513600000,
+          "endTimeMs": 1749599999000
+        },
+        "quickInterval": "CURRENT_DAY",
+        "hideInterval": false,
+        "hideLastInterval": false,
+        "hideFixedInterval": false,
+        "hideQuickInterval": false
+      },
+      "aggregation": {
+        "type": "NONE",
+        "limit": 500
+      }
+    },
+    "entityAliases": {
+      "gen-device-001": {
+        "id": "gen-device-001",
+        "alias": "Generator Device",
+        "filter": {
+          "type": "stateEntity",
+          "resolveMultiple": false,
+          "stateEntityParamName": "",
+          "defaultStateEntity": null
+        }
+      }
+    },
+    "filters": {},
+    "states": {
+      "default": {
+        "name": "Generator Details",
+        "root": true,
+        "layouts": {
+          "main": {
+            "widgets": {
+              "w-gen-mains": {
+                "sizeX": 14,
+                "sizeY": 5,
+                "row": 0,
+                "col": 0
+              },
+              "w-gen-info": {
+                "sizeX": 10,
+                "sizeY": 5,
+                "row": 0,
+                "col": 14
+              },
+              "w-gen-gauges": {
+                "sizeX": 24,
+                "sizeY": 5,
+                "row": 5,
+                "col": 0
+              }
+            },
+            "gridSettings": {
+              "layoutType": "default",
+              "backgroundColor": "#071b2d",
+              "columns": 24,
+              "margin": 10,
+              "outerMargin": true,
+              "backgroundSizeMode": "100%",
+              "minColumns": 24,
+              "viewFormat": "grid",
+              "autoFillHeight": false,
+              "rowHeight": 70,
+              "backgroundImageUrl": null,
+              "mobileAutoFillHeight": false,
+              "mobileRowHeight": 70
+            }
+          }
+        },
+        "stateControllerId": null
+      }
+    },
+    "widgets": {
+      "w-gen-mains": {
+        "typeFullFqn": "tenant.generator_widgets.gen_mains_panel",
+        "type": "latest",
+        "sizeX": 14,
+        "sizeY": 5,
+        "config": {
+          "datasources": [
+            {
+              "type": "entity",
+              "name": "Generator Mains",
+              "entityAliasId": "gen-device-001",
+              "dataKeys": [
+                {"name": "voltage_L1N",        "type": "timeseries", "label": "voltage_L1N",        "color": "#2196f3", "settings": {}, "_hash": 0.11},
+                {"name": "voltage_L2N",        "type": "timeseries", "label": "voltage_L2N",        "color": "#4caf50", "settings": {}, "_hash": 0.12},
+                {"name": "voltage_L3N",        "type": "timeseries", "label": "voltage_L3N",        "color": "#ff9800", "settings": {}, "_hash": 0.13},
+                {"name": "frequency",          "type": "timeseries", "label": "frequency",          "color": "#e91e63", "settings": {}, "_hash": 0.14},
+                {"name": "voltage_L1L2",       "type": "timeseries", "label": "voltage_L1L2",       "color": "#2196f3", "settings": {}, "_hash": 0.15},
+                {"name": "voltage_L2L3",       "type": "timeseries", "label": "voltage_L2L3",       "color": "#4caf50", "settings": {}, "_hash": 0.16},
+                {"name": "voltage_L3L1",       "type": "timeseries", "label": "voltage_L3L1",       "color": "#ff9800", "settings": {}, "_hash": 0.17},
+                {"name": "current_L1",         "type": "timeseries", "label": "current_L1",         "color": "#2196f3", "settings": {}, "_hash": 0.18},
+                {"name": "current_L2",         "type": "timeseries", "label": "current_L2",         "color": "#4caf50", "settings": {}, "_hash": 0.19},
+                {"name": "current_L3",         "type": "timeseries", "label": "current_L3",         "color": "#ff9800", "settings": {}, "_hash": 0.20},
+                {"name": "power_kW_L1",        "type": "timeseries", "label": "power_kW_L1",        "color": "#2196f3", "settings": {}, "_hash": 0.21},
+                {"name": "power_kW_L2",        "type": "timeseries", "label": "power_kW_L2",        "color": "#4caf50", "settings": {}, "_hash": 0.22},
+                {"name": "power_kW_L3",        "type": "timeseries", "label": "power_kW_L3",        "color": "#ff9800", "settings": {}, "_hash": 0.23},
+                {"name": "power_kVA_L1",       "type": "timeseries", "label": "power_kVA_L1",       "color": "#2196f3", "settings": {}, "_hash": 0.24},
+                {"name": "power_kVA_L2",       "type": "timeseries", "label": "power_kVA_L2",       "color": "#4caf50", "settings": {}, "_hash": 0.25},
+                {"name": "power_kVA_L3",       "type": "timeseries", "label": "power_kVA_L3",       "color": "#ff9800", "settings": {}, "_hash": 0.26},
+                {"name": "power_kvar_L1",      "type": "timeseries", "label": "power_kvar_L1",      "color": "#2196f3", "settings": {}, "_hash": 0.27},
+                {"name": "power_kvar_L2",      "type": "timeseries", "label": "power_kvar_L2",      "color": "#4caf50", "settings": {}, "_hash": 0.28},
+                {"name": "power_kvar_L3",      "type": "timeseries", "label": "power_kvar_L3",      "color": "#ff9800", "settings": {}, "_hash": 0.29},
+                {"name": "pf_L1",              "type": "timeseries", "label": "pf_L1",              "color": "#2196f3", "settings": {}, "_hash": 0.30},
+                {"name": "pf_L2",              "type": "timeseries", "label": "pf_L2",              "color": "#4caf50", "settings": {}, "_hash": 0.31},
+                {"name": "pf_L3",              "type": "timeseries", "label": "pf_L3",              "color": "#ff9800", "settings": {}, "_hash": 0.32},
+                {"name": "energy_kWh_import",  "type": "timeseries", "label": "energy_kWh_import",  "color": "#2196f3", "settings": {}, "_hash": 0.33},
+                {"name": "energy_kWh_export",  "type": "timeseries", "label": "energy_kWh_export",  "color": "#4caf50", "settings": {}, "_hash": 0.34},
+                {"name": "energy_kVAh",        "type": "timeseries", "label": "energy_kVAh",        "color": "#ff9800", "settings": {}, "_hash": 0.35},
+                {"name": "energy_kvarh",       "type": "timeseries", "label": "energy_kvarh",       "color": "#e91e63", "settings": {}, "_hash": 0.36},
+                {"name": "total_kW",           "type": "timeseries", "label": "total_kW",           "color": "#2196f3", "settings": {}, "_hash": 0.37},
+                {"name": "total_kVA",          "type": "timeseries", "label": "total_kVA",          "color": "#4caf50", "settings": {}, "_hash": 0.38},
+                {"name": "total_kvar",         "type": "timeseries", "label": "total_kvar",         "color": "#ff9800", "settings": {}, "_hash": 0.39}
+              ],
+              "alarmFilterConfig": {"statusList": ["ACTIVE"]}
+            }
+          ],
+          "timewindow": {
+            "hideAggregation": false,
+            "hideAggInterval": false,
+            "hideTimezone": false,
+            "selectedTab": 0,
+            "realtime": {
+              "realtimeType": 0,
+              "interval": 5000,
+              "timewindowMs": 300000,
+              "quickInterval": "CURRENT_DAY",
+              "hideInterval": false,
+              "hideLastInterval": false,
+              "hideQuickInterval": false
+            },
+            "aggregation": {"type": "NONE", "limit": 500}
+          },
+          "showTitle": false,
+          "title": "Mains Power",
+          "padding": "0px",
+          "useDashboardTimewindow": true,
+          "displayTimewindow": false,
+          "settings": {},
+          "dropShadow": false,
+          "enableFullscreen": false,
+          "widgetStyle": {},
+          "widgetCss": "",
+          "noDataDisplayMessage": ""
+        },
+        "row": 0,
+        "col": 0,
+        "id": "w-gen-mains"
+      },
+      "w-gen-info": {
+        "typeFullFqn": "tenant.generator_widgets.gen_info_panel",
+        "type": "latest",
+        "sizeX": 10,
+        "sizeY": 5,
+        "config": {
+          "datasources": [
+            {
+              "type": "entity",
+              "name": "Generator Info",
+              "entityAliasId": "gen-device-001",
+              "dataKeys": [
+                {"name": "alarm_level",       "type": "timeseries", "label": "alarm_level",       "color": "#ff5722", "settings": {}, "_hash": 0.41},
+                {"name": "mains_state",       "type": "timeseries", "label": "mains_state",       "color": "#2196f3", "settings": {}, "_hash": 0.42},
+                {"name": "load_state",        "type": "timeseries", "label": "load_state",        "color": "#4caf50", "settings": {}, "_hash": 0.43},
+                {"name": "supervisor_state",  "type": "timeseries", "label": "supervisor_state",  "color": "#ff9800", "settings": {}, "_hash": 0.44},
+                {"name": "mode_state",        "type": "timeseries", "label": "mode_state",        "color": "#9c27b0", "settings": {}, "_hash": 0.45},
+                {"name": "usb_id",            "type": "attribute",  "label": "usb_id",            "color": "#2196f3", "settings": {}, "_hash": 0.46},
+                {"name": "model",             "type": "attribute",  "label": "model",             "color": "#4caf50", "settings": {}, "_hash": 0.47}
+              ],
+              "alarmFilterConfig": {"statusList": ["ACTIVE"]}
+            }
+          ],
+          "timewindow": {
+            "hideAggregation": false,
+            "hideAggInterval": false,
+            "hideTimezone": false,
+            "selectedTab": 0,
+            "realtime": {
+              "realtimeType": 0,
+              "interval": 5000,
+              "timewindowMs": 300000,
+              "quickInterval": "CURRENT_DAY",
+              "hideInterval": false,
+              "hideLastInterval": false,
+              "hideQuickInterval": false
+            },
+            "aggregation": {"type": "NONE", "limit": 500}
+          },
+          "showTitle": false,
+          "title": "Generator Info",
+          "padding": "0px",
+          "useDashboardTimewindow": true,
+          "displayTimewindow": false,
+          "settings": {},
+          "dropShadow": false,
+          "enableFullscreen": false,
+          "widgetStyle": {},
+          "widgetCss": "",
+          "noDataDisplayMessage": ""
+        },
+        "row": 0,
+        "col": 14,
+        "id": "w-gen-info"
+      },
+      "w-gen-gauges": {
+        "typeFullFqn": "tenant.generator_widgets.gen_gauges_panel",
+        "type": "latest",
+        "sizeX": 24,
+        "sizeY": 5,
+        "config": {
+          "datasources": [
+            {
+              "type": "entity",
+              "name": "Generator Engine",
+              "entityAliasId": "gen-device-001",
+              "dataKeys": [
+                {"name": "rpm",                  "type": "timeseries", "label": "rpm",                  "color": "#2196f3", "settings": {}, "_hash": 0.51},
+                {"name": "engine_hours",         "type": "timeseries", "label": "engine_hours",         "color": "#4caf50", "settings": {}, "_hash": 0.52},
+                {"name": "num_starts",           "type": "timeseries", "label": "num_starts",           "color": "#ff9800", "settings": {}, "_hash": 0.53},
+                {"name": "oil_pressure",         "type": "timeseries", "label": "oil_pressure",         "color": "#2196f3", "settings": {}, "_hash": 0.54},
+                {"name": "coolant_temp",         "type": "timeseries", "label": "coolant_temp",         "color": "#ff5722", "settings": {}, "_hash": 0.55},
+                {"name": "fuel_level_pct",       "type": "timeseries", "label": "fuel_level_pct",       "color": "#4caf50", "settings": {}, "_hash": 0.56},
+                {"name": "bulk_tank_pct",        "type": "timeseries", "label": "bulk_tank_pct",        "color": "#00bcd4", "settings": {}, "_hash": 0.57},
+                {"name": "battery_voltage",      "type": "timeseries", "label": "battery_voltage",      "color": "#ff9800", "settings": {}, "_hash": 0.58},
+                {"name": "charge_alt_voltage",   "type": "timeseries", "label": "charge_alt_voltage",   "color": "#9c27b0", "settings": {}, "_hash": 0.59},
+                {"name": "fuel_level_litres",    "type": "timeseries", "label": "fuel_level_litres",    "color": "#4caf50", "settings": {}, "_hash": 0.60},
+                {"name": "bulk_tank_level",      "type": "timeseries", "label": "bulk_tank_level",      "color": "#00bcd4", "settings": {}, "_hash": 0.61}
+              ],
+              "alarmFilterConfig": {"statusList": ["ACTIVE"]}
+            }
+          ],
+          "timewindow": {
+            "hideAggregation": false,
+            "hideAggInterval": false,
+            "hideTimezone": false,
+            "selectedTab": 0,
+            "realtime": {
+              "realtimeType": 0,
+              "interval": 5000,
+              "timewindowMs": 300000,
+              "quickInterval": "CURRENT_DAY",
+              "hideInterval": false,
+              "hideLastInterval": false,
+              "hideQuickInterval": false
+            },
+            "aggregation": {"type": "NONE", "limit": 500}
+          },
+          "showTitle": false,
+          "title": "Engine Gauges",
+          "padding": "0px",
+          "useDashboardTimewindow": true,
+          "displayTimewindow": false,
+          "settings": {},
+          "dropShadow": false,
+          "enableFullscreen": false,
+          "widgetStyle": {},
+          "widgetCss": "",
+          "noDataDisplayMessage": ""
+        },
+        "row": 5,
+        "col": 0,
+        "id": "w-gen-gauges"
+      }
+    }
+  }
+}
